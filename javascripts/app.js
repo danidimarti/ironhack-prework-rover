@@ -1,6 +1,6 @@
 // Rover Object Goes Here
 var rover = {
-  direction: ["N","W", "S", "E"],
+  direction: "N",
   x:0,
   y:0,
   travelLog: [],
@@ -24,10 +24,9 @@ function turnLeft(rover){
     case "E":
       rover.direction= "N";
       break;
-    default: "N";
-
-    console.log("The rover is currently facing: " + rover.direction);
   }
+  console.log("The rover is currently facing: " + rover.direction);
+
 }
 
 
@@ -92,6 +91,13 @@ function moveForward(rover){
     alert("Rover off grid!");
     rover.x=rover.x--;
   }
+
+//adds rovers position to the TravelLog's array
+rover.travelLog.push(rover.x + "," + rover.y);
+
+// Reports the travel log array
+console.log(rover.travelLog);
+
 }
 
 //Rover Commands
@@ -111,6 +117,7 @@ function executeSteps (string){
       break;
       
     }
+    
   }
-
+  
 }
